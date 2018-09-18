@@ -7,11 +7,11 @@
 %global modname cekit
 
 Name:           python-cekit
-Version:        2.1.3
+Version:        2.1.4
 Obsoletes:      python-concreate
 Provides:       python-concreate
 Conflicts:      python-concreate
-Release:        2
+Release:        1
 Summary:        Container image creation tool
 License:        MIT
 URL:            https://github.com/cekit/cekit
@@ -162,6 +162,9 @@ cp completion/zsh/_cekit %{buildroot}/%{_datadir}/zsh/site-functions/_cekit
 %{_bindir}/cekit-cache
 
 %changelog
+* Tue Sep 18 2018 David Becvarik <dbecvari@redhat.com> - 2.1.4-1
+- 2.1.4 release
+
 * Thu Sep 13 2018 David Becvarik <dbecvari@redhat.com> - 2.1.3-2
 - rebuilt
 
