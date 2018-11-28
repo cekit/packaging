@@ -7,7 +7,7 @@
 %global modname cekit-next
 
 Name:           python-cekit-next
-Version:        2.2.0
+Version:        2.3.0
 Conflicts:      python-cekit
 Release:        1
 Summary:        Container image creation tool - upcoming version
@@ -157,5 +157,8 @@ cp completion/zsh/_cekit %{buildroot}/%{_datadir}/zsh/site-functions/_cekit
 
 
 %changelog
+* Wed Nov 28 2018 Marek Goldmann <mgoldman@redhat.com> - 2.3.0-1
+- 2.3.x release
+
 * Wed Jun 13 2018 David Becvarik <dbecvari@redhat.com> - 2.1.0-1
 - 2.1 cekit-next release
