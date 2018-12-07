@@ -126,12 +126,6 @@ cp completion/zsh/_cekit %{buildroot}/%{_datadir}/zsh/site-functions/_cekit
 %py3_install
 %endif
 
-%files -n python2-%{modname}
-%doc README.rst
-%license LICENSE
-%{python2_sitelib}/cekit/
-%{python2_sitelib}/cekit-*.egg-info/
-
 %files -n %{modname}-bash-completion
 %doc README.rst
 %license LICENSE
@@ -141,6 +135,12 @@ cp completion/zsh/_cekit %{buildroot}/%{_datadir}/zsh/site-functions/_cekit
 %doc README.rst
 %license LICENSE
 %{_datadir}/zsh/site-functions/_cekit
+
+%files -n python2-%{modname}
+%doc README.rst
+%license LICENSE
+%{python2_sitelib}/cekit/
+%{python2_sitelib}/cekit-*.egg-info/
 
 %if 0%{?with_python3}
 %files -n python3-%{modname}
@@ -154,7 +154,6 @@ cp completion/zsh/_cekit %{buildroot}/%{_datadir}/zsh/site-functions/_cekit
 %{_bindir}/concreate
 %{_bindir}/cekit
 %{_bindir}/cekit-cache
-
 
 %changelog
 * Wed Nov 28 2018 Marek Goldmann <mgoldman@redhat.com> - 2.3.0-1
