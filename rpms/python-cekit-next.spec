@@ -37,11 +37,13 @@ BuildRequires:  pytest
 Requires:       python-jinja2
 Requires:       python-setuptools
 Requires:       python-docker-py
+Requires:       python-docker-squash
 %else
 BuildRequires:  python2-pytest
 Requires:       python2-jinja2
 Requires:       python2-setuptools
 Requires:       python2-docker
+Requires:       python3-docker-squash
 %endif
 
 Requires:       python2-pykwalify
@@ -74,6 +76,7 @@ Requires:       python3-colorlog
 Requires:       python3-jinja2
 Requires:       python3-setuptools
 Requires:       python3-docker
+Requires:       python3-docker-squash
 Requires:       git
 
 %description -n python3-%{modname} %_description
@@ -99,7 +102,7 @@ ZSH completion.
 %setup -q -n cekit-develop
 
 %if 0%{?rhel}
-sed -i 's/docker/docker-py/' requirements.txt
+sed -i 's/^docker$/docker-py/' requirements.txt
 %endif
 
 %build
