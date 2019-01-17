@@ -7,7 +7,7 @@
 %global modname cekit-next
 
 Name:           python-cekit-next
-Version:        2.3.0
+Version:        3.0.0
 Conflicts:      python-cekit
 Release:        1
 Summary:        Container image creation tool - upcoming version
@@ -24,34 +24,26 @@ Cekit helps to build container images from image definition files
 %package -n python2-%{modname}
 Summary:        %{summary}
 Conflicts:      python2-cekit
+
 BuildRequires:  python2-devel
 BuildRequires:  python2-setuptools
-BuildRequires:  python2-mock
 BuildRequires:  python2-pykwalify
 BuildRequires:  PyYAML
 BuildRequires:  python2-colorlog
 BuildRequires:  python-jinja2
 
-%if 0%{?rhel}
-BuildRequires:  pytest
+Requires:       PyYAML
 Requires:       python-jinja2
 Requires:       python-setuptools
-Requires:       python-docker-py
-Requires:       python-docker-squash
-%else
-BuildRequires:  python2-pytest
-Requires:       python2-jinja2
-Requires:       python2-setuptools
-Requires:       python2-docker
-Requires:       python3-docker-squash
-%endif
-
 Requires:       python2-pykwalify
 Requires:       python2-colorlog
-Requires:       PyYAML
-Requires:       docker
+
 Requires:       git
-Requires:       bash-completion
+
+Recommends:     python-docker-py
+Recommends:     python2-docker-squash
+Recommends:     docker
+Recommends:     bash-completion
 
 %description -n python2-%{modname} %_description
 
@@ -61,23 +53,26 @@ Python 2 version.
 %package -n python3-%{modname}
 Summary:        %{summary}
 Conflicts:      python3-cekit
+
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
-BuildRequires:  python3-pytest
-BuildRequires:  python3-mock
 BuildRequires:  PyYAML
 BuildRequires:  python3-pykwalify
 BuildRequires:  python3-colorlog
 BuildRequires:  python3-jinja2
+
 Requires:       PyYAML
-Requires:       docker
-Requires:       python3-pykwalify
-Requires:       python3-colorlog
 Requires:       python3-jinja2
 Requires:       python3-setuptools
-Requires:       python3-docker
-Requires:       python3-docker-squash
+Requires:       python3-pykwalify
+Requires:       python3-colorlog
+
 Requires:       git
+
+Recommends:     python3-docker
+Recommends:     python3-docker-squash
+Recommends:     docker
+Recommends:     bash-completion
 
 %description -n python3-%{modname} %_description
 
@@ -110,12 +105,6 @@ sed -i 's/^docker$/docker-py/' requirements.txt
 %if 0%{?with_python3}
 %py3_build
 %endif
-
-#%check
-#py.test-%{python2_version} -v tests/test_unit*.py
-#%if 0%{?with_python3}
-#py.test-%{python3_version} -v tests/test_unit*.py
-#%endif
 
 %install
 mkdir -p %{buildroot}/%{_sysconfdir}/bash_completion.d
@@ -157,10 +146,3 @@ cp completion/zsh/_cekit %{buildroot}/%{_datadir}/zsh/site-functions/_cekit
 %{_bindir}/concreate
 %{_bindir}/cekit
 %{_bindir}/cekit-cache
-
-%changelog
-* Wed Nov 28 2018 Marek Goldmann <mgoldman@redhat.com> - 2.3.0-1
-- 2.3.x release
-
-* Wed Jun 13 2018 David Becvarik <dbecvari@redhat.com> - 2.1.0-1
-- 2.1 cekit-next release
