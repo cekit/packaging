@@ -37,13 +37,7 @@ Requires:       python-jinja2
 Requires:       python-setuptools
 Requires:       python2-pykwalify
 Requires:       python2-colorlog
-
 Requires:       git
-
-Recommends:     python-docker-py
-Recommends:     python2-docker-squash
-Recommends:     docker
-Recommends:     bash-completion
 
 %description -n python2-%{modname} %_description
 
