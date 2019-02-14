@@ -7,7 +7,7 @@
 %global modname cekit
 
 Name:           python-cekit
-Version:        2.2.5
+Version:        2.2.6
 Obsoletes:      python-concreate
 Provides:       python-concreate
 Conflicts:      python-concreate
@@ -162,6 +162,9 @@ cp completion/zsh/_cekit %{buildroot}/%{_datadir}/zsh/site-functions/_cekit
 %{_bindir}/cekit-cache
 
 %changelog
+* Thu Feb 14 2019 Marek Goldmann <mgoldman@redhat.com> - 2.2.6-1
+- Release 2.2.6
+
 * Tue Jan 22 2019 Marek Goldmann <mgoldman@redhat.com> - 2.2.5-1
 - Release 2.2.5
 
